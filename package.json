@@ -1,27 +1,25 @@
 {
-  "name": "todo_app1",
+  "name": "re_todo",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "tsx watch src/app.ts",
-    "build": "tsc"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/method-override": "^3.0.0",
+    "@types/node": "^24.0.7",
+    "prisma": "^6.10.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
   "dependencies": {
     "@prisma/client": "^6.10.1",
-    "ejs": "^3.1.10",
     "express": "^5.1.0",
     "method-override": "^3.0.0"
-  },
-  "devDependencies": {
-    "@types/method-override": "^3.0.0",
-    "@types/node": "^20.14.2",
-    "prisma": "^6.10.1",
-    "tsx": "^4.16.2",
-    "typescript": "^5.8.3"
   }
 }
