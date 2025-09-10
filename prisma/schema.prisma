@@ -1,9 +1,11 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
 generator client {
-  provider      = "prisma-client-js"
-  // ★★★ ここに binaryTargets を追加 ★★★
-  // これで、Windows(native)とDockerコンテナ(linux-musl)の両方のエンジンが生成される
-  binaryTargets = ["native", "linux-musl-openssl-3.0.x"]
-  //binaryTargets = ["native", "debian-openssl-3.0.x"]
+  provider = "prisma-client-js"
 }
 
 datasource db {
@@ -13,13 +15,11 @@ datasource db {
 
 model Todo {
   id         String    @id @default(uuid())
+  todoTemplateId String?
   title      String    @db.VarChar(255)
   body       String?   @db.Text
-  completed  Boolean?  @default(false)
-  due_date   DateTime? @db.Date
-  created_at DateTime? @default(now()) @db.Timestamp(0)
-  updated_at DateTime? @default(now()) @db.Timestamp(0)
-
-  // このモデルがデータベースの 'todos' テーブルに対応することを示す
-  @@map("todos")
+  isCompleted  Boolean  @default(false)
+  completedAt   DateTime? @db.Date
+  createdAt DateTime @default(now()) @db.Timestamp(0)
+  updatedAt DateTime @updatedAt @db.Timestamp(0)
 }
